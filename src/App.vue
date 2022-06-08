@@ -1,26 +1,28 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+	<div class="grid grid-cols-1 gap-y-2 p-4">
+		<minecraft-server-card
+			v-for="server in servers"
+			:host="server.host"
+			:port="server.port"
+			:key="server.host + ':' + server.port"
+		></minecraft-server-card>
+	</div>
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
+<script setup>
+import { defineProps } from 'vue';
+import MinecraftServerCard from './components/MinecraftServerCard.vue';
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+defineProps({
+	servers: {
+		type: Array,
+		required: false,
+		default: () => [
+			{ host: 'vh.mc.arkan1.ru' },
+			{ host: 'db.mc.arkan1.ru' },
+			{ host: 'bnc.mc.arkan1.ru' },
+		],
+	},
+});
+
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
