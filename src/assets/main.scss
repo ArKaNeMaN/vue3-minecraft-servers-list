@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.cdnfonts.com/css/minecraftia');
+
+html {
+    font-family: Minecraftia, sans-serif;
+    font-size: 18px;
+    color: white;
+}
+
+body {
+    @apply overflow-hidden h-screen w-screen;
+    background-image: url(dirt32.png);
+    background-repeat: repeat;
+    backdrop-filter: brightness(0.3);
+    background-size: 64px 64px;
+
+    & > #app {
+        @apply w-full h-full flex flex-col;
+
+        & > main {
+            @apply w-full flex-grow bg-black/50 overflow-y-auto overflow-x-hidden;
+
+            -webkit-box-shadow: 0 0 12px 3px rgba(0, 0, 0, 1) inset;
+            -moz-box-shadow: 0 0 12px 3px rgba(0, 0, 0, 1) inset;
+            box-shadow: 0 0 12px 3px rgba(0, 0, 0, 1) inset;
+        }
+
+        & > header {
+            @apply h-20 flex-shrink-0;
+        }
+
+        & > footer {
+            @apply h-36 flex-shrink-0;
+        }
+    }
+}
+
+.mc-button {
+    @apply bg-gray-500 p-2 shadow-black drop-shadow-lg;
+    @apply border border-black hover:border-white;
+    @apply focus-visible:outline-0 focus-visible:border-white;
+    @apply h-10 flex items-center justify-center;
+    @apply select-none;
+
+    background-image: url(button32.png);
+    background-size: cover;
+    background-clip: border-box;
+
+    &.disabled {
+        @apply bg-black cursor-auto;
+    }
+}
+
+.mc-controls-row {
+    @apply flex flex-row gap-x-2;
+
+    & > * {
+        @apply flex-grow;
+    }
+}
+
+.mc-input {
+    caret-shape: underscore;
+}
+
+.mc-modal {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(dirt32.png), repeat;
+    background-size: 64px 64px;
+}
+
+.mc-server-item {
+    @apply h-20 border-2 border-transparent p-1 flex flex-row gap-x-2;
+    @apply select-none;
+
+    &.mc-server-item--selected {
+        @apply bg-black border-white;
+    }
+
+    .mc-server-item__icon {
+        @apply aspect-square h-full bg-white;
+    }
+
+    .mc-server-item__info {
+        @apply flex-grow;
+
+        .mc-server-item__info__title {
+            @apply leading-4 mb-1;
+        }
+    }
+}
