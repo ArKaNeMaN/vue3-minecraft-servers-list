@@ -8,7 +8,7 @@ withDefaults(defineProps<{
     closeByEsc: true,
 });
 
-const showModel = defineModel<boolean>('show', {local: false, default: false});
+const showModel = defineModel<boolean>('show', {default: false});
 
 const modalLayoutEl = ref<typeof ModalLayout | null>(null);
 

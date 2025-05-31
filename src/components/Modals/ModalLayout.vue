@@ -5,7 +5,7 @@ withDefaults(defineProps<{
 }>(), {
     closeByEsc: true,
 });
-const showModel = defineModel<boolean>('show', {local: true, default: false});
+const showModel = defineModel<boolean>('show', {default: false});
 
 function onKeyPressed(e: KeyboardEvent) {
     if (showModel.value && e.key === 'Escape') {
