@@ -39,7 +39,7 @@ jobs:
         run: npm ci
       - name: Build
         env:
-          VITE_BASE_URL: /vue3-minecraft-servers-list/
+          VITE_BASE_URL: /${{ github.event.repository.name }}/
         run: npm run build
       - name: Setup Pages
         uses: actions/configure-pages@v5
